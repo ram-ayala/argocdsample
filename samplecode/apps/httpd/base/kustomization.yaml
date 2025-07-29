@@ -1,7 +1,9 @@
 ---
 resources:
- # - httpd-svc.yaml
-  - httpd-deployment.yaml
- # - httpd-route.yaml
- # - httpd-network-policy.yaml
+  - httpd-serviceaccount.yaml
   - httpd-secret.yaml
+  - httpd-deployment.yaml
+  - httpd-service.yaml
+  - httpd-secure-service.yaml
+  - httpd-route.yaml
+  - httpd-network-policies.yaml
