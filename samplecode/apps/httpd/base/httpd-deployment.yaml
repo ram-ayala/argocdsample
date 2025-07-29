@@ -30,3 +30,5 @@ spec:
             - name: IBM_MICROSERVICE_PORT
               value: ""
           resources: {}
+      imagePullSecrets:
+        - name: docker-pull-secret
