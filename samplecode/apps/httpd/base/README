@@ -1,0 +1,13 @@
+Install Operator:
+1.Install Red Hat OpenShift GitOps operator (This will be installed to the openshift-gitops-operator namespace, however resources will be created under openshift-operator namespace)
+2.Fetch the route from openshift-operator namespace--> Login using openshift credentials
+
+Configure Gitops
+1.Create project
+2.Configure Repository
+3. Create application
+
+
+1. Namespace must be created
+2. run the below command for every namespace/project to be created
+   oc adm policy add-role-to-user admin system:serviceaccount:openshift-gitops:openshift-gitops-argocd-application-controller -n project-name
