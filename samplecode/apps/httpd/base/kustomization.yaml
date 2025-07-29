@@ -1,0 +1,7 @@
+---
+resources:
+ # - httpd-svc.yaml
+ # - httpd-deployment.yaml
+ # - httpd-route.yaml
+ # - httpd-network-policy.yaml
+  - httpd-secret.yaml

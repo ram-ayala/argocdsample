@@ -1,4 +1,0 @@
----
-resources:
-  - collections-IBM-Microservice-deployment.yaml
-  - collections-IBM-Microservice-svc.yaml

@@ -1,7 +1,0 @@
----
-resources:
-  - Collections-API-svc.yaml
-  - Collections-API-deployment.yaml
-  - Collections-API-route.yaml
-  - network-policy.yaml
-  - secret.yaml
