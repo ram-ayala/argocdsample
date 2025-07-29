@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: collections-api
+  name: collections-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: collections-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: collections-api
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: node-id
+                operator: In
+                values:
+                - worker1
+            topologyKey: "kubernetes.io/hostname"
+          - labelSelector:
+              matchExpressions:
+              - key: node-id
+                operator: In
+                values:
+                - worker2
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+        - image: nexus-docker-repo.apps.kta-web.ksturnpike.local/collections-api:latest
+          name: collections-api
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: ""
+            - name: IBM_MICROSERVICE_HOST
+              value: ""
+            - name: IBM_MICROSERVICE_PORT
+              value: ""
+          resources: {}

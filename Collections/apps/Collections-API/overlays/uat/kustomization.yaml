@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: collections-uat
+resources:
+  - ../../base
+patches:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: collections-api
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: nexus-docker-repo.apps.kta-web.ksturnpike.local/collections-api:latest
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "3000"
+      - op: replace
+        path: /spec/template/spec/containers/0/env/1/value
+        value: "collections-ibm-ms"
+      - op: replace
+        path: /spec/template/spec/containers/0/env/2/value
+        value: "3000"
