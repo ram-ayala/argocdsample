@@ -20,8 +20,6 @@ spec:
       containers:
         - image: docker.io/tarak4u/hello-world:latest
           name: helloworld
-          ports:
-            - containerPort: 3000
           env:
             - name: PORT
               value: ""
