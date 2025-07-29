@@ -3,40 +3,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: collections-api
-  name: collections-api
+    app: helloworld
+  name: httpd
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: collections-api
+      app: helloworld
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: collections-api
+        app: helloworld
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: node-id
-                operator: In
-                values:
-                - worker1
-            topologyKey: "kubernetes.io/hostname"
-          - labelSelector:
-              matchExpressions:
-              - key: node-id
-                operator: In
-                values:
-                - worker2
-            topologyKey: "kubernetes.io/hostname"
       containers:
-        - image: nexus-docker-repo.apps.kta-web.ksturnpike.local/collections-api:latest
-          name: collections-api
+        - image: docker.io/tarak4u/hello-world:latest
+          name: helloworld
           ports:
             - containerPort: 3000
           env:
