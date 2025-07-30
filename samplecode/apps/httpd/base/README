@@ -1,5 +1,6 @@
 Install Operator:
 1.Install Red Hat OpenShift GitOps operator (This will be installed to the openshift-gitops-operator namespace, however resources will be created under openshift-operator namespace)
+2. edit argocd yaml to add ocp-admins as a group who can access argocd
 2.Fetch the route from openshift-operator namespace--> Login using openshift credentials
 
 Configure Gitops
